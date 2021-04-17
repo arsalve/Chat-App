@@ -19,11 +19,11 @@ socket.on('login', (a) => {
 function sendMsg() {
     var today = new Date();
 
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var date =today.getDate()+'/'+(today.getMonth()+1);
     
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var time = today.getHours() + ":" + today.getMinutes();
     
-    var dateTime = date+' '+time+' ';
+    var dateTime = date+' at '+time+' ';
     sessionStorage.getItem('name') == null ? name = prompt('Enter Your name') : name = sessionStorage.getItem('name');
     sessionStorage.setItem("name", name);
     var Msg = {
@@ -57,5 +57,5 @@ function load_text() {
 function putMSG(Msg) {
     
     var old = document.querySelector("#output").innerHTML;
-    document.querySelector("#output").innerHTML = old + '<table class="form-comments-table"><tr><td><div class="comment-timestamp">' + Msg.time+ '</div></td><td><div class="comment-user"> &nbsp' + Msg.name + '</div></td><td> </td><td><div id="comment-14" data-commentid="14" class="comment comment-step1">' + Msg.data + '<div id="commentactions-14" class="comment-actions"> <div class="btn-group" role="group" aria-label="..."><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> </button><button type="button" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i >Delete</button></div></div></div> </td></tr></table>';
+    document.querySelector("#output").innerHTML = old + '<table class="form-comments-table"><tr><td><div class="comment-timestamp">' + Msg.time+ '</div></td><td><div class="comment-user"> &nbsp' + Msg.name + '</div></td><td> </td><td><div id="comment-14" data-commentid="14" class="comment comment-step1">' + Msg.data + '</div> </td></tr></table>';
 }
