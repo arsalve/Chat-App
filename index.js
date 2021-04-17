@@ -8,7 +8,7 @@ const cros = require('cors');
 let fs = require('fs');
 const path = require('path')
 const app = express();
-const router = require('./Router.js');
+
 const {
     Socket
 } = require('dgram');
