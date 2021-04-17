@@ -8,6 +8,7 @@ const cros = require('cors');
 let fs = require('fs');
 const path = require('path')
 const app = express();
+const datamanupulation=require('./Save Retrive.js')
 
 const {
     Socket
@@ -28,7 +29,7 @@ const server = http.createServer(app);
 const io = socketio(server)
 const suc = chalk.greenBright;
 
-var storage = [];
+
 app.get('/*', (req, res) => {
     try {
         fs.readFile(__dirname + '\\index.html', 'utf8', function (err, text) {
@@ -43,18 +44,19 @@ app.get('/*', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-    socket.on('Login', () => {
+    socket.on('Login', (bo1) => {
         console.log(suc('New Member'))
-        socket.emit("login", storage)
+        socket.join(bo1.hash);
+        var temp=  datamanupulation.fetchData(bo1.hash,'login',socket);
+      
+
     });
-    socket.on('Msg', (a) => {
-        try{
-            if(storage.length>1000){
-                storage.shift();
-            }
-        storage.push(a);
-        io.emit("data", a)}
-        catch(error){
+    socket.on('Msg', (bo1) => {
+        try {
+
+            datamanupulation.save(bo1)
+            io.to(bo1.hash).emit("data", bo1)
+        } catch (error) {
             console.log(error)
         }
     });
