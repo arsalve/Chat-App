@@ -29,7 +29,7 @@ const io = socketio(server)
 const suc = chalk.greenBright;
 
 var storage = [];
-server.get('/*', (req, res) => {
+app.get('/*', (req, res) => {
     try {
         fs.readFile(__dirname + '\\index.html', 'utf8', function (err, text) {
             res.send(text);
