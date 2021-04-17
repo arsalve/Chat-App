@@ -23,7 +23,7 @@ app.use(express.urlencoded({
     limit: '50mb'
 }));
 app.use(cros());
-app.use(router)
+
 const server = http.createServer(app);
 const io = socketio(server)
 const suc = chalk.greenBright;
