@@ -55,7 +55,6 @@ function load_text() {
 }
 
 function putMSG(Msg) {
-    document.querySelector("#sendMsg").value = "";
     var old = document.querySelector("#output").innerHTML;
     document.querySelector("#output").innerHTML = old + '<table class="form-comments-table"><tr><td><div class="comment-timestamp">' + Msg.data.time + '</div></td><td><div class="comment-user"> &nbsp' + Msg.data.name + '</div></td><td> </td><td><div id="comment-14" data-commentid="14" class="comment comment-step1">' + Msg.data.data + '</div> </td></tr></table>';
 }
