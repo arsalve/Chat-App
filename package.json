@@ -1,0 +1,30 @@
+{
+  "name": "chat-app",
+  "version": "0.0.1",
+  "description": "description: Simple Chat application Devloped using Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arsalve/chat-app.git"
+  },
+  "keywords": [
+    "Chat",
+    "App"
+  ],
+  "author": "Ashish R Salve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arsalve/chat-app/issues"
+  },
+  "homepage": "https://github.com/arsalve/chat-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.0.1"
+  }
+}

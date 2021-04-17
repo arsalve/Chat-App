@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <link rel="stylesheet" type="text/css" href="Styles/style.css" />
+    <script type="text/javascript" src='/socket.io/socket.io.js'></script>
+    <script type="text/javascript" src='Scripts/Script.js'></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>The ChitChat</title>
+</head>
+
+
+
+<body onload="load_text()">
+    <div class="chatContainer">
+
+        <div class="chatTitleContainer">Messages</div>
+        <div class="chatHistoryContainer">
+
+            <ul id="output">
+            </ul>
+        </div>
+
+        <div class="input-group input-group-sm chatMessageControls">
+            <span class="input-group-addon" id="sizing-addon3">Message</span>
+            <input type="text" class="form-control" id="sendMsg" placeholder="Type your message here.."
+                aria-describedby="sizing-addon3">
+            <span class="input-group-btn">
+                <button id="sendMessageButton" class="btn btn-primary" type="button" onClick="sendMsg()"><i
+                        class="fa fa-send"></i>Send</button>
+            </span>
+        </div>
+    </div>
+
+   
+
+    </div>
+</body>
+
+</html>
