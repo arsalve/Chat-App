@@ -46,8 +46,8 @@ function sendMsg() {
 
 
 function load_text() {
-    if (window.location.hash==""){
-        window.location.hash="Janta"
+    if (window.location.hash == "") {
+        window.location.hash = "Janta"
     }
     socket.emit('Login', {
         "hash": window.location.hash
@@ -58,6 +58,7 @@ function putMSG(Msg) {
     var old = document.querySelector("#output").innerHTML;
     document.querySelector("#output").innerHTML = old + '<table class="form-comments-table"><tr><td><div class="comment-timestamp">' + Msg.data.time + '</div></td><td><div class="comment-user"> &nbsp' + Msg.data.name + '</div></td><td> </td><td><div id="comment-14" data-commentid="14" class="comment comment-step1">' + Msg.data.data + '</div> </td></tr></table>';
 }
+
 function putMSGdata(Msg) {
     document.querySelector("#sendMsg").value = "";
     var old = document.querySelector("#output").innerHTML;
@@ -66,3 +67,12 @@ function putMSGdata(Msg) {
 document.addEventListener('BeforeUnload', () => {
     socket.leave("room-" + window.location.hash);
 })
+document.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        var ms;
+        sessionStorage.getItem('Msg') != null ? ms = JSON.parse(sessionStorage.getItem('Msg')) : ms = [];
+        ms.push(a);
+        sessionStorage.setItem("Msg", JSON.stringify(ms));
+        putMSG(a);
+    }
+});
