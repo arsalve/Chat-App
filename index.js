@@ -49,7 +49,7 @@ io.on('connection', (socket) => {
     });
     socket.on('Msg', (a) => {
         try{
-            if(storage.length>10){
+            if(storage.length>1000){
                 storage.shift();
             }
         storage.push(a);
