@@ -21,9 +21,7 @@ const schema = mongoose.Schema({
         type: String
     }
 }
-    {
-        timestamps: true
-    }
+
 );
 schema.plugin(mongoosePaginate)
 const Msg = mongoose.model('Chat2', schema);
@@ -38,7 +36,7 @@ mongoose.connect(uri, {
 //following function finds an Msg based on given querry
 async function fetchData(roomV,cbl,cb) {
     var query =  {'hash':roomV};
-    var page = {limit: 100,  sort: {'created_at' : -1 }}
+    var page = {limit: 100,  sort: {'date' : -1 }}
     try {
         var result = await Msg.paginate(query, page);
             return   cb.emit(cbl, result);
