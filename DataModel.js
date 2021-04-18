@@ -21,6 +21,8 @@ const schema = mongoose.Schema({
     }
 
 );
+schema.index({createdAt: 1},{expireAfterSeconds: 172,800});
+
 schema.plugin(mongoosePaginate)
 const Msg = mongoose.model('chat2', schema);
 mongoose.connect(uri, {
