@@ -15,9 +15,6 @@ const schema = mongoose.Schema({
             type: String
         },
         
-    }, {
-        timestamps: true
-
     }
 
 );
