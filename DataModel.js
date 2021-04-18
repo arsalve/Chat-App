@@ -14,10 +14,11 @@ const schema = mongoose.Schema({
         'hash': {
             type: String
         },
-        'createdAt': {
+        expireAt: {
             type: Date,
-            expires: 86400000 
-        }
+            default: Date.now,
+            index: { expires: '3450m' },
+          },
     }, {
         timestamps: true
     }
