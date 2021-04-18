@@ -2,6 +2,7 @@ var socket = io();
 
 socket.on('data', (a) => {
     putMSGdata(a);
+
 })
 socket.on('login', (a) => {
 
@@ -61,7 +62,8 @@ function load_text() {
 function putMSGdata(Msg) {
     document.querySelector("#sizing-addon3").innerHTML='Updated' + Msg.time ;
     var old = document.querySelector("#output").innerHTML;
-    document.querySelector("#output").innerHTML =  '<div class="col-sm-12"><table class="form-comments-table"><tr><td ><div class="comment-user" > &nbsp' + Msg.name + '</div></td><td> </td><td style="width:100%;><div id="comment-14" data-commentid="14" class="comment comment-step1"  word-wrap: break-word">' + Msg.data + '</div> </td></tr></table></div">'+old ;
+    document.querySelector("#output").innerHTML = old+ '<div class="col-sm-12"><table class="form-comments-table"><tr><td ><div class="comment-user" > &nbsp' + Msg.name + '</div></td><td> </td><td style="width:100%;><div id="comment-14" data-commentid="14" class="comment comment-step1"  word-wrap: break-word">' + Msg.data + '</div> </td></tr></table></div">'
+    document.getElementById( 'bottom' ).scrollIntoView();
 }
 document.addEventListener('BeforeUnload', () => {
     socket.leave(window.location.hash);
