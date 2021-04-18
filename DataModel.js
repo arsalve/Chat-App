@@ -16,8 +16,7 @@ const schema = mongoose.Schema({
         },
         'createdAt': {
             type: Date,
-            expires: 86400000 ,
-            default: Date.now 
+            expires: 86400000 
         }
     }, {
         timestamps: true
