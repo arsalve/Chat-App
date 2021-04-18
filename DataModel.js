@@ -14,11 +14,7 @@ const schema = mongoose.Schema({
         'hash': {
             type: String
         },
-        expireAt: {
-            type: Date,
-            default: Date.now,
-            index: { expires: '3450m' },
-          },
+        
     }, {
         timestamps: true
     }
