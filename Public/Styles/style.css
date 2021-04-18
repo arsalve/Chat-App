@@ -145,6 +145,31 @@ display: none;
 	color: #030203;
 
 }
+.instructionglow {
+	font-size: 15px;
+	color: #fff;
+	-webkit-animation: instructionglow 1s ease-in-out infinite alternate;
+	-moz-animation: instructionglow 1s ease-in-out infinite alternate;
+	animation: instructionglow 1s ease-in-out infinite alternate;
+  }	
+  @-webkit-keyframes instructionglow {
+	from {
+	  text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #9d00e6, 0 0 40px #9d00e6, 0 0 50px #9d00e6, 0 0 60px #9d00e6, 0 0 70px #9d00e6;
+	}
+	to {
+	  text-shadow: 0 0 8px #fff, 0 0 30px #e14dff, 0 0 40px #e14dff, 0 0 50px #e14dff, 0 0 60px #e14dff, 0 0 70px #e14dff, 0 0 80px #e14dff;
+	}
+  }
+.input-group.input-group-sm.chatMessageControls {
+    position: fixed;
+}
 
+ @media only screen and (max-width: 1600px){ .chatHistoryContainer { height: 1500px; font-size: 1em;}}
 
+ @media only screen and (max-width: 1200px){ .chatHistoryContainer{ height: 1000px;font-size: 1em; }}
 
+ @media only screen and (max-width: 900px){ .chatHistoryContainer { height: 800px;font-size:  1em; }}
+
+ @media only screen and (max-width: 600px){ .chatHistoryContainer{ height: 550px; font-size:  1em;}}
+
+ @media only screen and (max-width: 400px){ .chatHistoryContainer { height: 350px; }}

@@ -13,15 +13,21 @@ const datamanupulation=require('./Save Retrive.js')
 const {
     Socket
 } = require('dgram');
+app.use(bodyParser.json({
+    limit : '50mb',
+    extended : true    ///////// LIMIT for JSON
+  }));
+
 app.use(bodyParser.urlencoded({
-    extended: true
-}));
+    limit : '50mb',
+    extended : true
+
+  }));
 app.use(express.static(path.join(__dirname, './Public')));
-app.use(express.json({
-    limit: '50mb'
-}));
+
 app.use(express.urlencoded({
-    limit: '50mb'
+    limit: '50mb',
+    extended : true
 }));
 app.use(cros());
 

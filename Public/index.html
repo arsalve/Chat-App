@@ -1,56 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z9B3ZFLP7"></script>
-     <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-4Z9B3ZFLP7');
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-53C9RLH');
     </script>
+    <!-- End Google Tag Manager -->
+
     <link rel="stylesheet" type="text/css" href="Styles/style.css" />
     <script type="text/javascript" src='/socket.io/socket.io.js'></script>
     <script type="text/javascript" src='Scripts/Script.js'></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <title>The ChitChat</title>
 </head>
 
 
 
 <body onload="load_text()">
-    <div class="chatContainer">
+    <div id="Main" class=" d-flex ">
+        <div class="chatContainer col">
 
-        <div class="chatTitleContainer">Messages</div>
-        <div class="chatHistoryContainer">
+            <div class="row">
+                <div class="col-sm-8 mx-right chatTitleContainer">Messages</div>
+                <div class="col-sm-4 mx-left instructionglow ">Developed In India by Ashish Salve</div>
+            </div>
+            <div class="chatHistoryContainer">
 
-            <ul id="output">
-            </ul>
+                <ul id="output">
+                </ul>
+            </div>
+
+            <div class="input-group input-group-sm chatMessageControls">
+                <span class="input-group-addon" id="sizing-addon3">Message</span>
+                <input type="text" class="form-control" id="sendMsg" placeholder="Type your message here.."
+                    aria-describedby="sizing-addon3">
+                <span class="input-group-btn">
+                    <button id="sendMessageButton" class="btn btn-primary" type="button" onClick="sendMsg()"><i
+                            class="fa fa-send"></i>Send</button>
+                </span>
+            </div>
         </div>
 
-        <div class="input-group input-group-sm chatMessageControls">
-            <span class="input-group-addon" id="sizing-addon3">Message</span>
-            <input type="text" class="form-control" id="sendMsg" placeholder="Type your message here.."
-                aria-describedby="sizing-addon3">
-            <span class="input-group-btn">
-                <button id="sendMessageButton" class="btn btn-primary" type="button" onClick="sendMsg()"><i
-                        class="fa fa-send"></i>Send</button>
-            </span>
-        </div>
+
+
     </div>
-
-   
-
     </div>
 </body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53C9RLH" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 </html>
