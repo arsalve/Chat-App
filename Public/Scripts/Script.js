@@ -59,9 +59,9 @@ function load_text() {
 // }
 
 function putMSGdata(Msg) {
-
+    document.querySelector("#sizing-addon3").innerHTML='Updated' + Msg.time ;
     var old = document.querySelector("#output").innerHTML;
-    document.querySelector("#output").innerHTML = old + '<table class="form-comments-table"><tr><td><div class="comment-timestamp">' + Msg.time + '</div></td><td><div class="comment-user"> &nbsp' + Msg.name + '</div></td><td> </td><td><div id="comment-14" data-commentid="14" class="comment comment-step1">' + Msg.data + '</div> </td></tr></table>';
+    document.querySelector("#output").innerHTML = old + '<div class="col-sm-12"><table class="form-comments-table"><tr><td ><div class="comment-user" > &nbsp' + Msg.name + '</div></td><td> </td><td style="width:100%;><div id="comment-14" data-commentid="14" class="comment comment-step1"  word-wrap: break-word">' + Msg.data + '</div> </td></tr></table></div">';
 }
 document.addEventListener('BeforeUnload', () => {
     socket.leave(window.location.hash);

@@ -13,7 +13,20 @@
 }
 
 * {
-	background-color: #242424;
+	background-color: #1a1919;
+	text-size-adjust: auto;
+}
+
+.top {
+	padding: 0.5%;
+	margin: 1%;
+	background-color: #24242400;
+	border-top: 1px solid #e90a3a;
+	border-left: 1px solid #e90a3a;
+	border-right: 1px solid#e90a3a;
+	border-bottom: 1px solid #e90a3a;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
 }
 
 .chatContainer {
@@ -24,22 +37,25 @@
 	padding: 20px;
 
 }
-ul{
-	background-color: #242424;	
+
+ul {
+	background-color: #242424;
+	padding-inline-start: 0px;
 }
+
 .chatHistoryContainer {
 
 	padding: 20px;
 	height: 80%;
-	width: 100%;
 	background-color: #3030309d;
 	border-top: 1px solid #e90a3a;
 	border-left: 1px solid #e90a3a;
 	border-right: 1px solid#e90a3a;
 	border-bottom: 1px solid #e90a3a;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	position: relative;
+	overflow-x: scroll;
 
 }
 
@@ -91,24 +107,20 @@ ul{
 
 
 
-.comment-timestamp :first-child{
+.comment-timestamp {
 
-	margin-left: 10px;
-	margin-right: 5px;
-	font: 1em sans-serif;
+	font: 0.1em sans-serif;
 	color: #f80053;
 
 }
-.comment-timestamp:nth-child() {
-display: none;
-}
-.comment-user{
+
+.comment-user {
 
 	margin-left: 10px;
 	margin-right: 5px;
 	font: 1em sans-serif bold;
 	color: #f80053;
-	
+
 
 }
 
@@ -124,9 +136,10 @@ display: none;
 
 .comment {
 
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.719);
-	font-size: 1.2em;
+	width: inherit;
+
+	background-color: #202020bd;
+	font-size: 14px;
 	margin: 0;
 	padding: 8px 8px;
 	line-height: 1.5;
@@ -136,6 +149,9 @@ display: none;
 	border: 1px solid#f31067;
 	border-bottom: 3px solid#f31067;
 	border-radius: 3px;
+	overflow: scroll;
+	text-size-adjust: auto;
+
 
 }
 
@@ -145,31 +161,28 @@ display: none;
 	color: #030203;
 
 }
+
 .instructionglow {
 	font-size: 15px;
+	background-color: #24242400;
 	color: #fff;
 	-webkit-animation: instructionglow 1s ease-in-out infinite alternate;
 	-moz-animation: instructionglow 1s ease-in-out infinite alternate;
 	animation: instructionglow 1s ease-in-out infinite alternate;
-  }	
-  @-webkit-keyframes instructionglow {
-	from {
-	  text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #9d00e6, 0 0 40px #9d00e6, 0 0 50px #9d00e6, 0 0 60px #9d00e6, 0 0 70px #9d00e6;
-	}
-	to {
-	  text-shadow: 0 0 8px #fff, 0 0 30px #e14dff, 0 0 40px #e14dff, 0 0 50px #e14dff, 0 0 60px #e14dff, 0 0 70px #e14dff, 0 0 80px #e14dff;
-	}
-  }
-.input-group.input-group-sm.chatMessageControls {
-    position: fixed;
+	padding-bottom: 0.5%;
+	margin-bottom: 1%;
 }
 
- @media only screen and (max-width: 1600px){ .chatHistoryContainer { height: 1500px; font-size: 1em;}}
+@-webkit-keyframes instructionglow {
+	from {
+		text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #9d00e6, 0 0 40px #9d00e6, 0 0 50px #9d00e6, 0 0 60px #9d00e6, 0 0 70px #9d00e6;
+	}
 
- @media only screen and (max-width: 1200px){ .chatHistoryContainer{ height: 1000px;font-size: 1em; }}
+	to {
+		text-shadow: 0 0 8px #fff, 0 0 30px #e14dff, 0 0 40px #e14dff, 0 0 50px #e14dff, 0 0 60px #e14dff, 0 0 70px #e14dff, 0 0 80px #e14dff;
+	}
+}
 
- @media only screen and (max-width: 900px){ .chatHistoryContainer { height: 800px;font-size:  1em; }}
-
- @media only screen and (max-width: 600px){ .chatHistoryContainer{ height: 550px; font-size:  1em;}}
-
- @media only screen and (max-width: 400px){ .chatHistoryContainer { height: 350px; }}
+.input-group.input-group-sm.chatMessageControls {
+	position: fixed;
+}

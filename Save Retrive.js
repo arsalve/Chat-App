@@ -34,7 +34,7 @@ async function savechat(obj) {
             'hash': obj.hash,
             'time': obj.time
         });
-        await resp.save();
+        var a= await resp.save();
     } catch (err) {
         console.log(err);
         catchHandler("While conecting the DB", err, ErrorC);
