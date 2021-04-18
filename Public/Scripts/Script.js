@@ -13,7 +13,7 @@ socket.on('login', (a) => {
     }
 
     dataLayer.push({'event':'Login','Hash':window.location.hash});
-    alert("Socket is Ready for targets and you are Logged in")
+    
 })
 
 function sendMsg() {
