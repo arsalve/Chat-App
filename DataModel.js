@@ -17,11 +17,12 @@ const schema = mongoose.Schema({
         
     }, {
         timestamps: true
+
     }
 
 );
 schema.plugin(mongoosePaginate)
-const Msg = mongoose.model('ChatData', schema);
+const Msg = mongoose.model('chat2', schema);
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
