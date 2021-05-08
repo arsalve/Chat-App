@@ -1,7 +1,7 @@
 const port = process.env.PORT || 8080;
 const express = require('express');
 const http = require('http');
-const socketio = require('socket.io')
+const socketio = require('socket.io');
 const bodyParser = require("body-parser");
 const chalk = require('chalk');
 const cros = require('cors');
