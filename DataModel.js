@@ -27,7 +27,7 @@ schema.index({
     expireAfterSeconds: 172800
 });
 
-schema.plugin(mongoosePaginate)
+schema.plugin(mongoosePaginate);
 const Msg = mongoose.model('ffb005', schema);
 mongoose.connect(uri, {
     useNewUrlParser: true,

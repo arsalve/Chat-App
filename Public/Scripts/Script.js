@@ -49,7 +49,7 @@ function sendMsg() {
 
 function load_text() {
     if (window.location.hash == "") {
-        window.location.hash = "क्या-बोलती-पब्लिक"
+        window.location.hash = "sarvajanik"
     }
     socket.emit('Login', {
         "hash": window.location.hash
