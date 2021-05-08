@@ -15,13 +15,20 @@ const schema = mongoose.Schema({
             type: String
         },
         
+    },
+    {
+        timestamps: true
     }
 
 );
-schema.index({createdAt: 1},{expireAfterSeconds: 172800});
+schema.index({
+    createdAt: 1
+}, {
+    expireAfterSeconds: 172800
+});
 
 schema.plugin(mongoosePaginate)
-const Msg = mongoose.model('chatData', schema);
+const Msg = mongoose.model('ffb005', schema);
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
