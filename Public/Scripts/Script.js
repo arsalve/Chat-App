@@ -85,29 +85,29 @@ function putMSGdata(Msg) {
     var old = document.querySelector("#Output").innerHTML || " ";
     Decrypted = CryptoJS.AES.decrypt(Msg.data, (window.location.hash).split('#')[1]);
     var Decry = Decrypted.toString(CryptoJS.enc.Utf8);
-    var tagInner = document.getElementById("Output").innerHTML;
+
     if (name != Msg.name) {
         if (Decry.includes("data:image")) {
     
-            tagInner = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"><a href= '+Decry+' download> <img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 0%"></img></a></div></div>'
+            document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"><a href= '+Decry+' download> <img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 0%"></img></a></div></div>'
 
 
         } else {
-            document.querySelector("#Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>';
+            document.querySelector("#Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>';
         }
 
 
     } else {
         if (Decry.includes("data:image")) {
             // saveIMG() 
-            tagInner = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= '+Decry+' download><img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 30%"></img></a></div></div>'
+            document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= '+Decry+' download><img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 30%"></img></a></div></div>'
 
 
         } else {
-            tagInner = old + '<div class="direct-chat-msg right "><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>'
+            document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right "><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>'
         }
     }
-    document.getElementById("Output").innerHTML=tagInner;
+   
     document.getElementById('bottom').scrollIntoView();
 }
 document.addEventListener('BeforeUnload', () => {
