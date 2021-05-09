@@ -19,34 +19,34 @@ socket.on('login', (a) => {
 
 })
 
-function sendMsg(data) {
+
+async function sendMsg() {
     var name = NameSetter()
-    data = data || document.querySelector("#sendMsg").value;
+    data = document.querySelector("#sendMsg").value;
 
-    if ((name != null) && (name != "") && (data != null) && (data != "")) {
-        sessionStorage.setItem("name", name);
-        var today = new Date();
-        var date = today.getDate() + '/' + (today.getMonth() + 1);
-        var time = today.getHours() + ":" + today.getMinutes();
-        var dateTime = date + ' at ' + time + ' ';
-        var Encrypted = CryptoJS.AES.encrypt(data, (window.location.hash).split('#')[1]);
-        var Msg = {
-            "data": Encrypted.toString(),
-            "time": dateTime,
-            "hash": window.location.hash,
-            "name": name
-        };
-        if (Msg.data != "") {
-            socket.emit('Msg', Msg);
-            document.querySelector("#sendMsg").value = "";
-        } else {
-            alert("Please enter your message")
-        }
+
+    var today = new Date();
+    var date = today.getDate() + '/' + (today.getMonth() + 1);
+    var time = today.getHours() + ":" + today.getMinutes();
+    var dateTime = date + ' at ' + time + ' ';
+    var Encrypted = CryptoJS.AES.encrypt(data, (window.location.hash).split('#')[1]);
+    var Msg = {
+        "data": Encrypted.toString(),
+        "time": dateTime,
+        "hash": window.location.hash,
+        "name": name,
+        "Media": false
+    };
+    if (Msg.data != "") {
+        await socket.emit('Msg', Msg);
+        document.querySelector("#sendMsg").value = "";
+
+        window.location.reload();
+
     } else {
-
-        console.log('no User Found');
-        NameSetter();
+        alert("Please enter your message")
     }
+
 }
 
 
@@ -91,16 +91,16 @@ function putMSGdata(Msg) {
 
             if (Decry.includes("data:image")) {
 
-                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"><a href= ' + Decry + ' download> <img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 0%"></img></a></div></div>'
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="./Img/user.svg"alt="message user image"><div class="direct-chat-text"><a href= ' + Decry + ' download> <img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 0%"></img></a></div></div>'
 
 
             } else {
-                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"><a href= ' + Decry + ' download> <h4>File Shared Click to download</h4></a></div></div>'
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="./Img/user.svg" alt="message user image"><div class="direct-chat-text"><a href= ' + Decry + ' download> <img src="./Img/att.svg" ></img></a></div></div>'
 
 
             }
         } else {
-            document.querySelector("#Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>';
+            document.querySelector("#Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="./Img/user.svg" alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>';
         }
 
 
@@ -108,12 +108,12 @@ function putMSGdata(Msg) {
         if (Decry.includes("data:")) {
             if (Decry.includes("data:image")) {
                 // saveIMG() 
-                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= ' + Decry + ' download><img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 30%"></img></a></div></div>'
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="./Img/user.svg"alt="message user image"><div class="direct-chat-text"> <a href= ' + Decry + ' download><img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 30%"></img></a></div></div>'
 
 
             } else {
 
-                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= ' + Decry + ' download><h4>File Shared Click to download</h4></div></div>'
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= ' + Decry + ' download> <img src="./Img/att.svg" ></img></div></div>'
             }
         } else {
             document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right "><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>'
@@ -126,13 +126,43 @@ document.addEventListener('BeforeUnload', () => {
     socket.leave(window.location.hash);
 })
 
+function postCurly(data, endpoint) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", endpoint);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.send(data);
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+            document.getElementById("sendMsg").placeholder = "Your file is uploaded";
+
+        }
+    });
+}
+
 function convIMG(Img) {
     var file = Img.files[0];
     var reader = new FileReader();
+    document.getElementById("sendMsg").placeholder = "Your file is beeing uploaded";
     reader.onloadend = function () {
 
-        sendMsg(reader.result);
-        console.log('RESULT', reader.result)
+        var today = new Date();
+        var date = today.getDate() + '/' + (today.getMonth() + 1);
+        var time = today.getHours() + ":" + today.getMinutes();
+        var dateTime = date + ' at ' + time + ' ';
+        var Encrypted = CryptoJS.AES.encrypt(reader.result, (window.location.hash).split('#')[1]);
+        var Msg = {
+            "data": Encrypted.toString(),
+            "time": dateTime,
+            "hash": window.location.hash,
+            "name": NameSetter(),
+            "Media": true
+
+        };
+        postCurly(JSON.stringify(Msg), window.location.origin + '/upload')
+        putMSGdata(Msg);
     }
     reader.readAsDataURL(file);
 

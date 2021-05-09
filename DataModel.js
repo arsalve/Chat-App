@@ -14,6 +14,9 @@ const schema = mongoose.Schema({
         'hash': {
             type: String
         },
+        'Media': {
+            type: Boolean
+        },
         
     },
     {

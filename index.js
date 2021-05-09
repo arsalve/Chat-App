@@ -49,6 +49,18 @@ app.get('/*', (req, res) => {
     }
 })
 
+app.post('/upload', (req, res) => {
+    try {
+        datamanupulation.save(req.body);
+        res.status(200).send("File Uploaded")
+        }
+     catch (error) {
+        catchHandler("Error Occured while  saving the data ", error, ErrorC);
+        res.status(500).send("Issue with server");
+        return err;
+    }
+})
+
 io.on('connection', (socket) => {
     socket.on('Login', (bo1) => {
         console.log(suc('New Member'))
@@ -60,13 +72,16 @@ io.on('connection', (socket) => {
     socket.on('Msg', (bo1) => {
         try {
 
-            datamanupulation.save(bo1)
-            io.to(bo1.hash).emit("data", bo1)
+             datamanupulation.save(bo1);
+             io.to(bo1.hash).emit("data", bo1);
+
         } catch (error) {
             console.log(error)
         }
     });
 })
+
+
 server.listen(port, () => {
     console.log(suc(`Ready for targets`))
 })
