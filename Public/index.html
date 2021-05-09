@@ -55,8 +55,7 @@
                     <div class="col-md-13">
                         <div class="box box-warning direct-chat direct-chat-warning">
 
-                            <div id="Output" class="box-body">
-
+                            <div id="Output" class="box-body"><br>
 
                             </div>
                         </div>
@@ -67,9 +66,18 @@
                                     placeholder="Type your message here.." aria-describedby="sizing-addon3">
                                 <span class="input-group-btn">
                                     <button id="sendMessageButton" class="btn btn-primary" type="button"
-                                        onClick="sendMsg()"><i class="fa fa-send"></i>Send</button>
+                                        onClick="sendMsg()"><i class="fa fa-send"></i>Send</button><br>
                                 </span>
+
+
                             </div>
+
+                            <div class="custom-file">
+                                <input type="file" class="input-group btn" onchange="convIMG(this)"
+                                    placeholder='Select Image' />
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
