@@ -21,9 +21,9 @@ socket.on('login', (a) => {
 
 function sendMsg(data) {
     var name = NameSetter()
-    data=data||document.querySelector("#sendMsg").value;
+    data = data || document.querySelector("#sendMsg").value;
 
-    if ((name != null) && (name != "")&&(data != null) && (data != "")) {
+    if ((name != null) && (name != "") && (data != null) && (data != "")) {
         sessionStorage.setItem("name", name);
         var today = new Date();
         var date = today.getDate() + '/' + (today.getMonth() + 1);
@@ -43,9 +43,9 @@ function sendMsg(data) {
             alert("Please enter your message")
         }
     } else {
-        
+
         console.log('no User Found');
-        NameSetter() ;
+        NameSetter();
     }
 }
 
@@ -66,16 +66,16 @@ function load_text() {
 // }
 
 function NameSetter() {
-    
-    if ((sessionStorage.getItem('name') == null)||(sessionStorage.getItem('name') == '')||!(sessionStorage.getItem('name')) ) {
+
+    if ((sessionStorage.getItem('name') == null) || (sessionStorage.getItem('name') == '') || !(sessionStorage.getItem('name'))) {
         var name = prompt('Enter Your name');
         debugger;
         sessionStorage.setItem('name', name);
     } else {
         var name = sessionStorage.getItem('name');
     }
-    if((sessionStorage.getItem('name') != null)&&(sessionStorage.getItem('name') != '')&&(sessionStorage.getItem('name') != undefined)) 
-    return name;
+    if ((sessionStorage.getItem('name') != null) && (sessionStorage.getItem('name') != '') && (sessionStorage.getItem('name') != undefined))
+        return name;
 
 }
 
@@ -87,27 +87,39 @@ function putMSGdata(Msg) {
     var Decry = Decrypted.toString(CryptoJS.enc.Utf8);
 
     if (name != Msg.name) {
-        if (Decry.includes("data:image")) {
-    
-            document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"><a href= '+Decry+' download> <img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 0%"></img></a></div></div>'
+        if (Decry.includes("data:")) {
+
+            if (Decry.includes("data:image")) {
+
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"><a href= ' + Decry + ' download> <img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 0%"></img></a></div></div>'
 
 
+            } else {
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"><a href= ' + Decry + ' download> <h4>File Shared Click to download</h4></a></div></div>'
+
+
+            }
         } else {
             document.querySelector("#Output").innerHTML = old + '<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">' + Msg.name + '</span><span class="direct-chat-timestamp pull-right">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>';
         }
 
 
     } else {
-        if (Decry.includes("data:image")) {
-            // saveIMG() 
-            document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= '+Decry+' download><img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 30%"></img></a></div></div>'
+        if (Decry.includes("data:")) {
+            if (Decry.includes("data:image")) {
+                // saveIMG() 
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= ' + Decry + ' download><img src=" ' + Decry + '" id="ConvIMG" class="output" style="width: 70%; margin-left: 30%"></img></a></div></div>'
 
 
+            } else {
+
+                document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text"> <a href= ' + Decry + ' download><h4>File Shared Click to download</h4></div></div>'
+            }
         } else {
             document.getElementById("Output").innerHTML = old + '<div class="direct-chat-msg right "><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">' + Msg.name + '</span><span class="direct-chat-timestamp pull-left">' + Msg.time + '</span></div><img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png"alt="message user image"><div class="direct-chat-text">' + Decry + '</div></div>'
         }
     }
-   
+
     document.getElementById('bottom').scrollIntoView();
 }
 document.addEventListener('BeforeUnload', () => {
@@ -118,7 +130,7 @@ function convIMG(Img) {
     var file = Img.files[0];
     var reader = new FileReader();
     reader.onloadend = function () {
-      
+
         sendMsg(reader.result);
         console.log('RESULT', reader.result)
     }

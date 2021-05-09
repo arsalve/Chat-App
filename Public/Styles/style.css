@@ -235,7 +235,7 @@ body {
     border-top-right-radius: 0;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    padding: 10px
+    padding: 10px;
 	margin-left: 15%;
 }
 
@@ -275,7 +275,8 @@ body {
 
 .direct-chat-msg,
 .direct-chat-text {
-    display: block
+    display: block;
+overflow-wrap: break-word;
 }
 
 .direct-chat-info {
