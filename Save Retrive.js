@@ -17,6 +17,7 @@ async function fetchData(roomV, cbl, cb) {
     }
     try {
         var result = await Msg.paginate(query, page);
+      
         return cb.emit(cbl, result);
     } catch (err) {
         catchHandler("While Finding data in the DB", err, ErrorC);
