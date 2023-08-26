@@ -4,7 +4,7 @@ description: Simple Chat application Devloped using Nodejs 👩‍💻🤖
 By using this App you can Chat with  your Friends / Communities  🙃 
 *बोले तो ये मैने प्यार किया के कबूतर के माफिक*
 
-you can change the word after # symbol and replace it with anything🤩 i.e your URL will be "https://bolbantai.herokuapp.com/#<Randomchat room name> 💫
+you can change the word after # symbol and replace it with anything🤩 i.e your URL will be "https://bol-bantai.onrender.com#<Randomchat room name> 💫
 *जिधर हम आपण पसंदीदा #टॅग लागनेका और चिठी भेजनेका*
 
 Anyone can access the chat room via hashtag easily without any authentication
