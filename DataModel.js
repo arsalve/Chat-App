@@ -1,4 +1,4 @@
-const uri = process.env.DB || "mongodb+srv://Alpha1996:Alpha1996@notepad.marpq.mongodb.net/Users?retryWrites=true&w=majority";
+const uri = process.env.DB.MONGODB;
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 const schema = mongoose.Schema({
