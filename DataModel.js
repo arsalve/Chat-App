@@ -1,4 +1,4 @@
-const uri = process.env.DB.MONGODB;
+const uri = process.env.MONGODB;
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 const schema = mongoose.Schema({
